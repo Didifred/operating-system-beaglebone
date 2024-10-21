@@ -1,9 +1,18 @@
 #!/bin/bash
 
-BOOTSTATE_SIZE=8M
-SYSTEM_SIZE=256M
-KERNEL_SIZE=24M
-OVERLAY_SIZE=96M
+if [ "$BOARD_ID" != "BeagleBoneBlack" ]; then
+  BOOTSTATE_SIZE=8M
+  SYSTEM_SIZE=256M
+  KERNEL_SIZE=24M
+  OVERLAY_SIZE=96M
+else
+  # Optimized for BBB in order to have whole initial containers fitting in eMMC (3.6G)
+  BOOTSTATE_SIZE=8M
+  SYSTEM_SIZE=196M
+  KERNEL_SIZE=16M
+  OVERLAY_SIZE=16M
+fi
+
 DATA_SIZE=1280M
 
 function create_disk_image() {

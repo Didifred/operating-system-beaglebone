@@ -1,4 +1,4 @@
-BOARD_ID=tinker
+BOARD_ID=BeagleBoneBlack
 BOARD_NAME="BeagleBone Black"
 CHASSIS=embedded
 BOOTLOADER=uboot
